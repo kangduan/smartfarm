@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<body>
-	<div class="wrapper">
+<div class="wrapper">
 		<!--=== Header ===-->
 		<div class="header">
 			<div class="container">
@@ -26,17 +23,10 @@
 								<li><a href="#">German</a></li>
 							</ul>
 						</li>
-						<% if user_signed_in? %>
-							<li class="topbar-devider"></li>
-							<li><a href="/users/sign_out">로그아웃</a></li>
-							<li class="topbar-devider"></li>
-							<li><a><strong><%= current_user.master_name %></strong> 님</a></li>
-						<% else %>
-							<li class="topbar-devider"></li>
-							<li><a href="/users/sign_up">회원가입</a></li>
-							<li class="topbar-devider"></li>
-							<li><a href="/users/sign_in">로그인</a></li>
-						<% end %>
+						<li class="topbar-devider"></li>
+						<li><a href="/users/sign_up">회원가입</a></li>
+						<li class="topbar-devider"></li>
+						<li><a href="/users/sign_in">로그인</a></li>
 					</ul>
 				</div>
 				<!-- End Topbar -->
@@ -83,7 +73,7 @@
 										<li><a target="_blank" href="E-Commerce/shop-ui-filter-grid.html">- Filter Grid Page</a></li>
 										<li><a target="_blank" href="E-Commerce/shop-ui-filter-list.html">- Filter List Page</a></li>
 										<li><a target="_blank" href="E-Commerce/shop-ui-add-to-cart.html">- Checkout Page</a></li>
-										<li><a target="_blank" href="/login">- Login Page</a></li>
+										<li><a target="_blank" href="E-Commerce/shop-ui-login.html">- Login Page</a></li>
 										<li><a target="_blank" href="E-Commerce/shop-ui-register.html">- Registration Page</a></li>
 									</ul>
 								</li>
@@ -259,11 +249,11 @@
 								<!-- End Pricing Tables -->
 
 								<!-- Login and Registration -->
-								<li class="dropdown-submenu">
+								<li class="dropdown-submenu active">
 									<a href="javascript:void(0);">Login and Registration</a>
 									<ul class="dropdown-menu">
 										<li><a href="page_registration.html">Registration Page</a></li>
-										<li><a href="page_login.html">Login Page</a></li>
+										<li class="active"><a href="page_login.html">Login Page</a></li>
 										<li><a href="page_registration1.html">Registration Option</a></li>
 										<li><a href="page_login1.html">Login Option</a></li>
 										<li><a href="page_login_and_registration.html">Login/Registration Option</a></li>
@@ -274,11 +264,11 @@
 								<!-- End Login and Registration -->
 
 								<!-- FAQs Pages -->
-								<li class="dropdown-submenu active">
+								<li class="dropdown-submenu">
 									<a href="javascript:void(0);">FAQs Pages</a>
 									<ul class="dropdown-menu">
 										<li><a href="page_faq1.html">FAQs Page</a></li>
-										<li class="active"><a href="page_faq.html">FAQs Basic</a></li>
+										<li><a href="page_faq.html">FAQs Basic</a></li>
 									</ul>
 								</li>
 								<!-- End FAQs Pages -->
@@ -790,20 +780,6 @@
 							</ul>
 						</li>
 						<!-- End Demo Pages -->
-
-						<!-- Search Block -->
-						<li>
-							<i class="search fa fa-search search-btn"></i>
-							<div class="search-open">
-								<div class="input-group animated fadeInDown">
-									<input type="text" class="form-control" placeholder="Search">
-									<span class="input-group-btn">
-										<button class="btn-u" type="button">Go</button>
-									</span>
-								</div>
-							</div>
-						</li>
-						<!-- End Search Block -->
 					</ul>
 				</div><!--/end container-->
 			</div><!--/navbar-collapse-->
@@ -813,198 +789,66 @@
 		<!--=== Breadcrumbs ===-->
 		<div class="breadcrumbs">
 			<div class="container">
-				<!--<h1 class="pull-left"><strong>행복축산</strong></h1>-->
+				<h1 class="pull-left">회원가입</h1>
 				<ul class="pull-right breadcrumb">
-					<li><a href="index.html">홈</a></li>
-					<!--<li><a href="">Pages</a></li>-->
-					<li class="active">행복축산</li>
+					<li><a href="/">홈</a></li>
+					<li><a>행복축산</a></li>
+					<li class="active">회원가입</li>
 				</ul>
-			</div>
+			</div><!--/container-->
 		</div><!--/breadcrumbs-->
-		<!--=== End Breadcrumbs ===-->
+	<!--=== End Breadcrumbs ===-->
 
-		<!--=== Content Part ===-->
-		<div class="container content">
-			<div class="row">
-				<div class="col-md-9">
-					<!-- General Questions -->
-					<div class="headline"><h2>행복축산 이용법</h2></div>
-					<div class="panel-group acc-v1 margin-bottom-40" id="accordion">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-										1. Put a bird on it squid single-origin coffee nulla?
-									</a>
-								</h4>
-							</div>
-							<div id="collapseOne" class="panel-collapse collapse in">
-								<div class="panel-body">
-									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-								</div>
-							</div>
-						</div>
+<div class="container content">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "reg-page") do |f| %>
+          <%= devise_error_messages! %>
+          <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            <%= f.text_field :master_name, placeholder: "사업자 명",class: "form-control", autofocus: true %>
+          </div>
+          <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            <%= f.text_field :business_name, placeholder: "사업자 번호",class: "form-control", autofocus: true %>
+          </div>
+          <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="fa fa-home"></i></span>
+            <%= f.text_field :business_number, placeholder: "상호 명",class: "form-control", autofocus: true %>
+          </div>
+          <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+            <%= f.text_field :email, placeholder: "이메일",class: "form-control", autofocus: true %>
+          </div>
+          <div class="input-group margin-bottom-20">
+            <!--
+            <% if @minimum_password_length %>
+            (<%= @minimum_password_length %> 글자이상)
+            <% end %>
+          -->
+            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+            <%= f.password_field :password, class: "form-control", placeholder: "패스워드", autocomplete: "off" %>
+          </div>
+          <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+            <%= f.password_field :password_confirmation, placeholder: "패스워드 확인", class: "form-control", autocomplete: "off" %>
+          </div>
 
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-										2. Oliva pariatur cliche reprehenderit high life accusamus?
-									</a>
-								</h4>
-							</div>
-							<div id="collapseTwo" class="panel-collapse collapse">
-								<div class="panel-body">
-									<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
-									<ul class="list-unstyled">
-										<li><i class="fa fa-check color-green"></i> Donec id elit non mi porta gravida at eget metus..</li>
-										<li><i class="fa fa-check color-green"></i> Fusce dapibus, tellus ac cursus comodo egetine..</li>
-										<li><i class="fa fa-check color-green"></i> Food truck quinoa nesciunt laborum eiusmod runch..</li>
-										<li><i class="fa fa-check color-green"></i> Donec id elit non mi porta gravida at eget metus..</li>
-									</ul>
-								</div>
-							</div>
-						</div>
+          	<div class="col-md-offset-6 col-md-6">
+              	<%= f.submit "회원가입", class: "btn-u pull-right" %>
+          	</div>
 
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-										3. Enim eiusmod high life accusamus terry richardson?
-									</a>
-								</h4>
-							</div>
-							<div id="collapseThree" class="panel-collapse collapse">
-								<div class="panel-body">
-									<p>Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Food truck quinoa nesciunt laborum eiusmodolf moon tempor, sunt aliqua put a bird.</p>
-									<ul class="list-unstyled">
-										<li><i class="fa fa-check color-green"></i> Donec id elit non mi porta gravida at eget metus..</li>
-										<li><i class="fa fa-check color-green"></i> Fusce dapibus, tellus ac cursus comodo egetine..</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-										4. Livil anim keffiyeh helvetica craft beer labore wesde brunch?
-									</a>
-								</h4>
-							</div>
-							<div id="collapseFour" class="panel-collapse collapse">
-								<div class="panel-body">
-									Olif moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-								</div>
-							</div>
-						</div>
-
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-										5. Leggings occaecat craft beer farmto tableraw denim?
-									</a>
-								</h4>
-							</div>
-							<div id="collapseFive" class="panel-collapse collapse">
-								<div class="panel-body">
-									<p>Keffiyeh anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.</p>
-									<ul class="list-unstyled">
-										<li><i class="fa fa-check color-green"></i> Donec id elit non mi porta gravida at eget metus..</li>
-										<li><i class="fa fa-check color-green"></i> Fusce dapibus, tellus ac cursus comodo egetine..</li>
-										<li><i class="fa fa-check color-green"></i> Food truck quinoa nesciunt laborum eiusmod runch..</li>
-										<li><i class="fa fa-check color-green"></i> Donec id elit non mi porta gravida at eget metus..</li>
-										<li><i class="fa fa-check color-green"></i> Fusce dapibus, tellus ac cursus comodo egetine..</li>
-										<li><i class="fa fa-check color-green"></i> Food truck quinoa nesciunt laborum eiusmod runch..</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
-										6. Keffiyeh anim keffiyeh helvetica craft beer labore wesse?
-									</a>
-								</h4>
-							</div>
-							<div id="collapseSix" class="panel-collapse collapse">
-								<div class="panel-body">
-									Helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Brunch sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-								</div>
-							</div>
-						</div>
-
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
-										7. Helvetica craft beer labore wes anderson cred nesciu ntlife richardson?
-									</a>
-								</h4>
-							</div>
-							<div id="collapseSeven" class="panel-collapse collapse">
-								<div class="panel-body">
-									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-								</div>
-							</div>
-						</div>
-					</div><!--/acc-v1-->
-					<!-- End General Questions -->
-				</div><!--/col-md-9-->
-
-				<div class="col-md-3">
-					<!-- Contacts -->
-					<div class="headline"><h2>Contacts</h2></div>
-					<ul class="list-unstyled who margin-bottom-30">
-						<li><a href="#"><i class="fa fa-home"></i>서울시 서대문구 남가좌동 삼성아파트</a></li>
-						<li><a href="#"><i class="fa fa-envelope"></i>duanea0606@gmail.com</a></li>
-						<li><a href="#"><i class="fa fa-phone"></i>010-4112-1592</a></li>
-						<!--<li><a href="#"><i class="fa fa-globe"></i>http://www.example.com</a></li>-->
-					</ul>
-					<!-- End Contacts -->
-
-					<!-- Business Hours -->
-					<div class="headline"><h2>Business Hours</h2></div>
-					<ul class="list-unstyled margin-bottom-30">
-						<li><strong>Monday-Friday:</strong> 10am to 8pm</li>
-						<li><strong>Saturday:</strong> 11am to 3pm</li>
-						<li><strong>Sunday:</strong> Closed</li>
-					</ul>
-					<!-- End Business Hours -->
-
-					<% if user_signed_in? %>
-					<!-- 마이페이지  -->
-					<div class="headline"><h2>내 정보</h2></div>
-					<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
-					<ul class="list-unstyled margin-bottom-30">
-						<li><i class="fa fa-check color-green"></i> <%= current_user.business_name %></li>
-						<li><i class="fa fa-check color-green"></i> <%= current_user.master_name %></li>
-						<li><i class="fa fa-check color-green"></i> <%= current_user.business_number %></li>
-						<li><i class="fa fa-check color-green"></i> <%= current_user.email %></li>
-					</ul>
-					<% end %>
-					<!-- End Info Block -->
-				</div><!--/col-md-3-->
-			</div><!--/row-->
-		</div><!--/container-->
-		<!--=== End Content Part ===-->
-	</div><!--/wrapper-->
-
-	<!--=== End Style Switcher ===-->
-	<script type="text/javascript">
-		jQuery(document).ready(function() {
-			App.init();
-			StyleSwitcher.initStyleSwitcher();
-		});
-	</script>
-	<!--[if lt IE 9]>
-	<script src="assets/plugins/respond.js"></script>
-	<script src="assets/plugins/html5shiv.js"></script>
-	<script src="assets/plugins/placeholder-IE-fixes.js"></script>
-	<![endif]-->
-</body>
-</html>
+						<hr>
+		        <h4>이미 회원이신가요?</h4>
+		        <p><a class="color-green" href="/users/sign_in">로그인</a></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div><!-- /wrapper -->
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+		App.init();
+		StyleSwitcher.initStyleSwitcher();
+  });
+</script>
