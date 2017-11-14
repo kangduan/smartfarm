@@ -32,7 +32,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
 
       t.string :master_name
       t.string :business_name
-      t.integer :business_number
+      t.string :business_number
 
       t.timestamps null: false
     end

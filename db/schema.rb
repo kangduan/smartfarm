@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20171112082928) do
     t.string   "last_sign_in_ip"
     t.string   "master_name"
     t.string   "business_name"
-    t.integer  "business_number"
+    t.string   "business_number"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
